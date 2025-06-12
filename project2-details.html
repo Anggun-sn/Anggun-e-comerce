@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Proyek 2 - Anggun Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #2b0f3f, #4d1c3d);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      padding-top: 70px; /* Ruang untuk navbar fixed */
+    }
+    .project-detail-section {
+      padding: 80px 0;
+      text-align: center;
+    }
+    .project-detail-section h1 {
+      font-size: 3.5rem;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+    .project-detail-section img {
+      max-width: 80%; /* Lebar maksimum gambar */
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+    .project-detail-section p, .project-detail-section ul {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      max-width: 800px; /* Batasi lebar teks */
+      margin: 0 auto 30px auto;
+      text-align: left; /* Teks paragraf rata kiri */
+    }
+    .project-detail-section ul {
+        list-style-type: disc; /* Untuk bullet points */
+        padding-left: 20px;
+    }
+    .btn-back, .btn-danger {
+      background-color: #db3c72;
+      border-color: #db3c72;
+      font-weight: bold;
+      padding: 10px 25px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    .btn-back:hover, .btn-danger:hover {
+      background-color: #a72d56;
+      border-color: #a72d56;
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    /* Navbar Customization (diulang agar konsisten) */
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease;
+    }
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    .nav-link.text-white {
+      transition: color 0.3s ease;
+    }
+    .nav-link.text-white:hover {
+      color: #db3c72 !important;
+    }
+
+    @media (max-width: 768px) {
+        .project-detail-section h1 {
+            font-size: 2.5rem;
+        }
+        .project-detail-section p, .project-detail-section ul {
+            font-size: 1rem;
+        }
+        .project-detail-section img {
+            max-width: 95%;
+        }
+    }
+    @media (max-width: 576px) {
+        .project-detail-section h1 {
+            font-size: 2rem;
+        }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">A</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto gap-3">
+          <li class="nav-item"><a class="nav-link text-white" href="index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="index.html#services">Service</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="index.html#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="btn btn-danger btn-sm" href="index.html#footer">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="project-detail-section">
+    <div class="container">
+      <h1>Detail Proyek 2: Website travel</h1>
+      <img src="Projects 2.jpg" alt="Gambar Proyek 2 - Website E-Commerce Fashion" class="img-fluid">
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
