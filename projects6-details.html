@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lukani - Plant Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #5cb85c; /* A green color for buttons/highlights */
+            --text-color: #333;
+            --light-text-color: #666;
+            --border-color: #eee;
+            --background-color: #f8f8f8;
+            --white: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--background-color);
+            padding: 10px 0;
+            font-size: 0.85em;
+            color: var(--light-text-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar .right-info {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 40px;
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            overflow: hidden;
+            max-width: 400px;
+        }
+
+        .search-bar select {
+            padding: 10px;
+            border: none;
+            background-color: var(--background-color);
+            border-right: 1px solid var(--border-color);
+        }
+
+        .search-bar input {
+            padding: 10px;
+            border: none;
+            flex-grow: 1;
+        }
+
+        .search-bar button {
+            background-color: var(--white);
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            color: var(--light-text-color);
+        }
+
+        .header .icons {
+            display: flex;
+            gap: 20px;
+            font-size: 1.2em;
+        }
+
+        .header .icons a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .header .icons .cart-icon {
+            position: relative;
+        }
+
+        .header .icons .cart-icon span {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 0.7em;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            background-color: var(--white);
+            padding: 15px 0;
+        }
+
+        .main-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .main-nav .categories {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .main-nav .categories i {
+            font-size: 1.2em;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .main-nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            padding-bottom: 5px;
+            position: relative;
+        }
+
+        .main-nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav ul li a:hover::after,
+        .main-nav ul li.active a::after {
+            width: 100%;
+        }
+
+        .main-nav .call-support {
+            color: var(--light-text-color);
+            font-size: 0.9em;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--background-color);
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .hero-content h1 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 1.1em;
+            color: var(--light-text-color);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #4CAF50; /* Slightly darker green */
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 50%;
+            text-align: right;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.2em;
+            color: var(--text-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .arrow:hover {
+            background-color: var(--white);
+        }
+
+        .arrow.left {
+            left: 20px;
+        }
+
+        .arrow.right {
+            right: 20px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 40px 0;
+            background-color: var(--white);
+        }
+
+        .features .container {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .feature-item {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--background-color);
+        }
+
+        .feature-item i {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .feature-item p {
+            font-size: 0.9em;
+            color: var(--light-text-color);
+        }
+
+        /* Product Categories Section */
+        .product-categories {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .product-categories .container {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+        }
+
+        .category-card {
+            flex: 1;
+            background-color: var(--background-color);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            min-height: 250px;
+            position: relative;
+        }
+
+        .category-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .category-card p {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--light-text-color);
+            margin-bottom: 15px;
+        }
+
+        .category-card a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .category-card img {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            height: 100%;
+            object-fit: cover;
+            width: 50%; /* Adjust as needed */
+        }
+
+        .category-card.left-image img {
+            left: 0;
+            right: auto;
+            width: auto;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .category-card .text-content {
+            z-index: 1; /* Ensure text is above image */
+        }
+
+        /* Our Products Section */
+        .our-products {
+            padding: 60px 0;
+            background-color: var(--background-color);
+            text-align: center;
+        }
+
+        .our-products h2 {
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            color: var(--text-color);
+        }
+
+        .product-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .product-tabs button {
+            background: none;
+            border: none;
+            font-size: 1.1em;
+            font-weight: 500;
+            color: var(--light-text-color);
+            cursor: pointer;
+            padding-bottom: 8px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .product-tabs button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .product-tabs button.active {
+            color: var(--text-color);
+        }
+
+        .product-tabs button.active::after {
+            width: 100%;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: left;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .product-card .discount-tag {
+            background-color: #e74c3c; /* Red for discount */
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            font-weight: 600;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 10;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .product-card-content {
+            padding: 15px;
+        }
+
+        .product-card-content h4 {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .product-card-content p {
+            font-size: 0.9em;
+            color: var(--light-text-color);
+            margin-bottom: 10px;
+        }
+
+        .product-card-content .price {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container">
+            <p>Free Delivery: Take advantage of our time to save event</p>
+            <div class="right-info">
+                <span>USD <i class="fas fa-chevron-down"></i></span>
+                <span>English <i class="fas fa-chevron-down"></i></span>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">LUKANI</a>
+            <div class="search-bar">
+                <select>
+                    <option>All Categories</option>
+                    <option>Plants</option>
+                    <option>Pots</option>
+                </select>
+                <input type="text" placeholder="Search product...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="icons">
+                <a href="#"><i class="fas fa-user"></i></a>
+                <a href="#"><i class="fas fa-heart"></i></a>
+                <a href="#" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <div class="categories">
+                <i class="fas fa-bars"></i>
+                <span>CATEGORIES</span>
+            </div>
+            <ul>
+                <li class="active"><a href="#">HOME</a></li>
+                <li><a href="#">SHOP</a></li>
+                <li><a href="#">BLOG</a></li>
+                <li><a href="#">PAGES</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
+            <div class="call-support">
+                Call Support: (+800) 123 456 789
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>TOP SALE</h1>
+                <p>Discount 20% OFF For Lukani Members</p>
+                <a href="#" class="btn">DISCOVER NOW</a>
+            </div>
+            <div class="hero-image">
+                <img src="16.jpg" alt="Plant Display">
+            </div>
+        </div>
+        <div class="arrow left"><i class="fas fa-chevron-left"></i></div>
+        <div class="arrow right"><i class="fas fa-chevron-right"></i></div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="feature-item">
+                <i class="fas fa-truck"></i>
+                <h3>Free Delivery</h3>
+                <p>Free shipping around the world for all orders over $100</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-lock"></i>
+                <h3>Safe Payment</h3>
+                <p>Safe and fast payment gateway, don't worry about your information</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-award"></i>
+                <h3>Friendly Services</h3>
+                <p>You have an easy return guarantee for every single order</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-categories">
+        <div class="container">
+            <div class="category-card">
+                <div class="text-content">
+                    <h3>Big Sale Products</h3>
+                    <p>Plants<br>For Interior</p>
+                    <a href="#">SHOP NOW <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <img src="26.jpg" alt="Interior Plant">
+            </div>
+            <div class="category-card left-image">
+                <div class="text-content">
+                    <h3>Top Products</h3>
+                    <p>Plants<br>For Healthy</p>
+                    <a href="#">SHOP NOW <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <img src="36.jpg" alt="Healthy Plant">
+            </div>
+        </div>
+    </section>
+
+    <section class="our-products">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="product-tabs">
+                <button class="active">PLANT STANDS & MOVERS</button>
+                <button>PLANT FAMILIES</button>
+                <button>OUTDOOR PLANT POTS</button>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <span class="discount-tag">-2%</span>
+                    <img src="46.jpg" alt="Product 1">
+                    <div class="product-card-content">
+                        <h4>Fiddle Leaf Fig</h4>
+                        <p>Indoor Plant</p>
+                        <div class="price">$24.00</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <span class="discount-tag">-5%</span>
+                    <img src="56.jpg" alt="Product 2">
+                    <div class="product-card-content">
+                        <h4>Snake Plant</h4>
+                        <p>Air Purifying</p>
+                        <div class="price">$18.50</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <span class="discount-tag">-8%</span>
+                    <img src="66.jpg" alt="Product 3">
+                    <div class="product-card-content">
+                        <h4>Terracotta Pot</h4>
+                        <p>Plant Accessories</p>
+                        <div class="price">$12.00</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <span class="discount-tag">-7%</span>
+                    <img src="76.jpg" alt="Product 4">
+                    <div class="product-card-content">
+                        <h4>Pothos Plant</h4>
+                        <p>Easy Care</p>
+                        <div class="price">$15.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
